@@ -15,6 +15,10 @@ const getMatches = (query: string, actions: Action[]): Action[] => {
         weight: 0.7,
       },
       {
+        name: 'shortcut',
+        weight: 0.5,
+      },
+      {
         name: 'keywords',
         weight: 0.3,
       },

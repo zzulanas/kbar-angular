@@ -21,7 +21,17 @@ import { Action } from '../../types/actions';
         <span>{{ '›' }}</span>
       </ng-container>
 
-      {{ action.name }}
+      <div>
+        {{ action.name }}
+      </div>
+
+      <div *ngIf="action.shortcut" class="shortcut">
+        <span
+          *ngFor="let key of action.shortcut.split(' ')"
+          class="shortcut-key"
+          >{{ key }}</span
+        >
+      </div>
     </li>
   `,
 })

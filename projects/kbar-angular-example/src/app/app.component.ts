@@ -97,6 +97,7 @@ export class AppComponent {
         name: 'Search docs',
         keywords: ['search', 'find', 'docs', 'documentation'],
         group: 'Documentation',
+        shortcut: 'sd',
       },
       {
         id: 'docs-overview',

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Action } from './types/actions';
 import getMatches from './functions/matches';
 import { Theme } from './types';
@@ -16,7 +17,13 @@ export class KbarAngularService {
   submenu: string | null = null;
   focusedIndex: number = 0;
 
+  private searchComponentSubject = new BehaviorSubject<any | null>(null);
+
   constructor() {}
+
+  setSearchComponent(component: any) {
+    this.searchComponentSubject.next(component);
+  }
 
   handleClose(): void {
     this.isOpen = false;
@@ -28,6 +35,10 @@ export class KbarAngularService {
 
   handleOpen(): void {
     this.isOpen = true;
+    // Focus the input after opening
+    setTimeout(() => {
+      this.searchComponentSubject.value?.focusInput();
+    });
   }
 
   handleSearch(query: string): void {
@@ -65,11 +76,21 @@ export class KbarAngularService {
         );
 
         this.handleClose();
+      } else {
+        // Refocus the input if not closing
+        setTimeout(() => {
+          this.searchComponentSubject.value?.focusInput();
+        });
       }
     }
     // Close the kbar if the action doesn't specify otherwise
     else if (action.closeOnSelect !== false) {
       this.handleClose();
+    } else {
+      // Refocus the input if not closing
+      setTimeout(() => {
+        this.searchComponentSubject.value?.focusInput();
+      });
     }
   };
 }

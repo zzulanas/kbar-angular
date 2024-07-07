@@ -11,6 +11,7 @@ export type Action = {
   closeOnSelect?: boolean | undefined | null;
   parent?: string | undefined | null;
   group?: string | undefined | null;
+  shortcut?: string | undefined | null;
 };
 
 export type Group = {

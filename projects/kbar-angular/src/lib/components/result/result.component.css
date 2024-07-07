@@ -4,8 +4,8 @@
   cursor: pointer;
 
   display: flex;
-  gap: 8px;
   align-items: center;
+  justify-content: space-between;
 
   transition: background-color 0.2s ease;
 
@@ -17,7 +17,6 @@
 .item:hover,
 .active {
   background-color: #eee;
-
   border-left-color: #000;
 }
 
@@ -28,4 +27,20 @@
 
 .parent {
   opacity: 0.5;
+}
+
+.shortcut {
+  display: flex;
+  gap: 4px;
+}
+
+.shortcut-key {
+  background-color: #e2e8f0;
+  color: #4a5568;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 2px 4px;
+  border-radius: 4px;
+  min-width: 20px;
+  text-align: center;
 }

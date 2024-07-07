@@ -26,6 +26,7 @@ export class AppComponent {
       perform: () => {
         document.location.href = "/";
       },
+      shortcut: "h",
     },
     {
       id: "test",
