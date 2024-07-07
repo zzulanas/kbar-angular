@@ -28,8 +28,9 @@ export class KbarComponent {
     return this._kbarService;
   }
 
-  // ctrl + k
+  // ctrl + k + meta + k
   @HostListener('document:keydown.control.k', ['$event'])
+  @HostListener('document:keydown.meta.k', ['$event'])
   onCtrlK(event: KeyboardEvent): void | boolean {
     event.preventDefault();
 

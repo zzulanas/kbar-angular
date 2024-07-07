@@ -17,7 +17,7 @@
 }
 
 .positioner.animated {
-  animation: appearance 125ms ease-in forwards;
+  animation: appearance 250ms ease-in forwards;
 }
 
 @keyframes appearance {
